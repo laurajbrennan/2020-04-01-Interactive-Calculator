@@ -5,10 +5,6 @@ class App extends Component {
   state = { textArray: [], sentences: [], numberE: [], commas: [] };
 
   render() {
-    // const characters = this.state.textArray.length;
-    // const sentences = this.state.sentences.length;
-    // const es = this.state.numberE.length;
-    // const commas = this.state.
     const handleSubmit = e => {
       e.preventDefault();
       console.log(e.target.text.value);
@@ -34,30 +30,37 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1 className="title">Text Stats</h1>
-        <p className="subtitle">
-          Type or paste your text here for some vital statistics on your
-          writing!
-        </p>
-        <form action="submit" className="text" onSubmit={handleSubmit}>
-          <textarea type="textarea" className="text__input" name="text" />
-          <button className="text__submit" type="submit">
-            Get Stats
-          </button>
-        </form>
+        <div className="App__container">
+          <h1 className="App__title">Text Stats</h1>
+          <p className="App__subtitle">
+            Type or paste your text here for some vital statistics on your
+            writing!
+          </p>
+          <form action="submit" className="App__text" onSubmit={handleSubmit}>
+            <textarea type="textarea" className="App__text-input" name="text" />
+            <button className="App__text-submit" type="submit">
+              Get Stats
+            </button>
+          </form>
 
-        <section className="stats">
-          <div className="stats__box">
-            There are {this.state.textArray.length} characters in your text
-          </div>
-          <div>
-            There are {this.state.sentences.length} sentences in your text
-          </div>
-          <div>
-            You have used the letter E {this.state.numberE.length} times
-          </div>
-          <div>You used {this.state.commas.length} commas</div>
-        </section>
+          <section className="App__stats">
+            <div className="App__stats-box">
+              There are {this.state.textArray.length} characters in your text
+            </div>
+            <div className="App__stats-box">
+              There are {this.state.sentences.length} sentences in your text
+            </div>
+            <div className="App__stats-box">
+              You have used the letter E {this.state.numberE.length} times
+            </div>
+            <div className="App__stats-box">
+              You used {this.state.commas.length} commas
+            </div>
+          </section>
+        </div>
+        <footer className="App__footer">
+          Background: Photo by Kelly Sikkema on Unsplash
+        </footer>
       </div>
     );
   }
